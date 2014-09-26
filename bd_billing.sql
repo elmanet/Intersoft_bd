@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-09-2014 a las 04:37:40
+-- Tiempo de generación: 26-09-2014 a las 16:34:52
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
 
@@ -208,6 +208,7 @@ CREATE TABLE IF NOT EXISTS `sis_factura` (
   `tipo_pago` int(1) DEFAULT NULL,
   `observaciones` varchar(250) DEFAULT NULL,
   `termino_entrega` varchar(250) DEFAULT NULL,
+  `eliminada` int(1) DEFAULT '0',
   `creado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_factura`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -241,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `sis_factura_inventario` (
   `observaciones` varchar(250) DEFAULT NULL,
   `creado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_fact_inventario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
