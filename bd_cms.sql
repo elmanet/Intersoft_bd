@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.0.8
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 20-09-2014 a las 04:35:27
--- Versión del servidor: 5.5.27
--- Versión de PHP: 5.4.7
+-- Servidor: localhost
+-- Tiempo de generación: 12-10-2014 a las 20:20:08
+-- Versión del servidor: 5.1.73
+-- Versión de PHP: 5.2.17
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `temp_plantillamaestra`
+-- Base de datos: `ee000676_bd`
 --
 
 -- --------------------------------------------------------
@@ -36,14 +36,6 @@ CREATE TABLE IF NOT EXISTS `sis_banners` (
   `creado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_foto`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `sis_banners`
---
-
-INSERT INTO `sis_banners` (`id_foto`, `posicion`, `titulo_foto`, `info`, `ruta`, `orden`, `creado`) VALUES
-(1, 1, NULL, NULL, 'imagenes/867988766544322nRio-mar-6.jpg', 1, '2014-07-08 03:39:30'),
-(2, 1, NULL, NULL, 'imagenes/24988766544322Rio-mar-1.jpg', 2, '2014-07-08 03:41:24');
 
 -- --------------------------------------------------------
 
@@ -369,14 +361,6 @@ CREATE TABLE IF NOT EXISTS `sis_plantilla_articulos` (
   KEY `id_art_cate` (`id_art_cate`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
---
--- Volcado de datos para la tabla `sis_plantilla_articulos`
---
-
-INSERT INTO `sis_plantilla_articulos` (`id_articulo`, `id_art_cate`, `titulo_articulo`, `alias`, `contenido`, `orden`, `tipo_articulo`, `status`, `ruta`, `modificado`) VALUES
-(11, 4, 'Articulo de Muestra', 'Articulo-de-Muestra', '<p>Promociones MiGuayaba</p>\r\n', NULL, 0, 1, 'imagenes/20988766544322Lavista5.jpg', '2014-07-06 06:08:17'),
-(13, 4, 'Quienes Somos', 'Quienes-Somos', '<p>Somos una empresa muy exitosa!</p>\r\n', NULL, 3, 1, 'imagenes/895988766544322Rio--3.jpg', '2014-07-07 16:48:57');
-
 -- --------------------------------------------------------
 
 --
@@ -479,13 +463,6 @@ CREATE TABLE IF NOT EXISTS `sis_plantilla_menu_link` (
   KEY `id_art_cate` (`id_art_cate`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
---
--- Volcado de datos para la tabla `sis_plantilla_menu_link`
---
-
-INSERT INTO `sis_plantilla_menu_link` (`id_menu_link`, `titulo_link`, `tipo_link`, `id_articulo`, `id_art_cate`, `url_int`, `url_ext`, `id_menu`, `orden`, `status`, `modificado`) VALUES
-(1, 'inicio', 3, 11, NULL, 'index.php', NULL, 1, 1, 1, '2014-07-15 04:00:09');
-
 -- --------------------------------------------------------
 
 --
@@ -506,13 +483,6 @@ CREATE TABLE IF NOT EXISTS `sis_plantilla_modulos` (
   KEY `posicion` (`posicion`),
   KEY `posicion_2` (`posicion`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
---
--- Volcado de datos para la tabla `sis_plantilla_modulos`
---
-
-INSERT INTO `sis_plantilla_modulos` (`id`, `titulo`, `contenido`, `posicion`, `orden`, `nivel`, `hecho`, `status`, `modificado`) VALUES
-(6, 'logod', '<p><a href="index.php"><img alt="" src="http://127.0.0.1/1-PlantillaMaestra/images/site/logo_miguayaba_450px.png" style="width: 450px; height: 88px;" /></a></p>\r\n', 10, 1, 1, 0, 1, '2014-07-07 16:40:48');
 
 -- --------------------------------------------------------
 
@@ -588,15 +558,6 @@ CREATE TABLE IF NOT EXISTS `sis_productos` (
   KEY `id_cate` (`id_cate`),
   KEY `id_marca` (`id_marca`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT AUTO_INCREMENT=69 ;
-
---
--- Volcado de datos para la tabla `sis_productos`
---
-
-INSERT INTO `sis_productos` (`id`, `cod_prod`, `nombre_prod`, `id_cate`, `id_marca`, `des_prod`, `des_prod_corto`, `existencia`, `precio`, `descuento`, `destacado`, `clave`, `ruta`, `status`, `modificado`) VALUES
-(66, 'Hos001', 'HOSTING 1 GB', 1, 7, '<p>Hosting 1GB</p>\r\n', 'Hosting idel para pequeÃ±os empresarios', 100, 20.00, NULL, 1, 'hosting', 'imagenes/1789887665h-1gb.jpg', 1, '2014-07-08 03:53:08'),
-(67, 'hos002', 'Hosting 2GB', 1, 7, '<p>Hosting 2GB</p>\r\n', 'Hosting 2GB para emprendedores', 100, 39.99, NULL, 1, 'hosting', 'imagenes/8649887665h-2gb.jpg', 1, '2014-07-08 03:55:14'),
-(68, 'hos003', 'Hosting Ilimitado', 1, 7, '<p>Hosting Ilimitado</p>\r\n', 'Hosting para clientes exigentes', 100, 99.00, 49.50, 1, 'hosting', 'imagenes/4799887665h-ilimitado.jpg', 1, '2014-07-06 06:06:54');
 
 -- --------------------------------------------------------
 
@@ -683,14 +644,15 @@ CREATE TABLE IF NOT EXISTS `sis_users` (
   `modificado` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_usuario`),
   KEY `id_user_tipo` (`id_user_tipo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `sis_users`
 --
 
 INSERT INTO `sis_users` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `ci_usuario`, `dir_usuario`, `email_usuario`, `tel_usuario`, `movil_usuario`, `id_user_tipo`, `ruta`, `status`, `creado`, `modificado`) VALUES
-(7, 'Eloy Manuel', 'Chacon Martinez', NULL, 'Panama', 'invernet2010@gmail.com', '507-227-6089', '507-6892-5235', 5, 'imagenes/821asd34e486612_10151391555286843_906010936_n.jpg', 1, NULL, '2014-07-14 16:52:46');
+(7, 'Eloy Manuel', 'Chacon Martinez', NULL, 'Panama', 'invernet2010@gmail.com', '507-227-6089', '507-6892-5235', 5, 'imagenes/821asd34e486612_10151391555286843_906010936_n.jpg', 1, NULL, '2014-07-14 16:52:46'),
+(8, 'Administrador', 'Web', NULL, '-', 'admin@web.com', '-', '-', 4, 'imagenes/', 1, NULL, '2014-10-12 23:19:25');
 
 -- --------------------------------------------------------
 
@@ -707,14 +669,15 @@ CREATE TABLE IF NOT EXISTS `sis_users_cuenta` (
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `id_user` (`id_user`),
   KEY `id_usuario` (`id_usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `sis_users_cuenta`
 --
 
 INSERT INTO `sis_users_cuenta` (`id_user`, `username`, `password`, `id_usuario`, `creado`) VALUES
-(5, 'elmanet', 'c31e5dbc0e1c6ff38680e25584847ae6', 7, '2013-05-09 03:10:00');
+(5, 'elmanet', 'c31e5dbc0e1c6ff38680e25584847ae6', 7, '2013-05-09 03:10:00'),
+(6, 'admin', '21232f297a57a5a743894a0e4a801fc3', 8, '2014-10-12 23:19:25');
 
 -- --------------------------------------------------------
 
